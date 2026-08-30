@@ -1,38 +1,19 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>XPMess</title>
 
-<meta
-    name="description"
-    content="XPMess — классический онлайн-мессенджер"
-/>
-
-<meta
-    name="theme-color"
-    content="#c8d0d4"
-/>
-
-<!-- =========================================================
-     FIREBASE SDK
-========================================================= -->
+<meta name="description" content="XPMess — классический онлайн-мессенджер">
+<meta name="theme-color" content="#c8d0d4">
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 
-
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -46,16 +27,9 @@ body {
 }
 
 body {
-
     overflow: hidden;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     color: #39464c;
-
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -79,21 +53,16 @@ button {
     display: none !important;
 }
 
-
-/* =========================================================
+/* =========================
    AUTH
-========================================================= */
+========================= */
 
 .auth-screen {
-
     position: fixed;
-
     inset: 0;
-
     z-index: 10000;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -107,21 +76,11 @@ button {
         );
 }
 
-
 .auth-box {
-
-    width:
-        min(
-            410px,
-            100%
-        );
-
+    width: min(410px, 100%);
     padding: 30px;
 
-    border:
-        1px solid
-        #7d888d;
-
+    border: 1px solid #7d888d;
     border-radius: 10px;
 
     background:
@@ -131,33 +90,22 @@ button {
         );
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.95),
-
-        0 15px 45px
-        rgba(0,0,0,.35);
+        inset 0 1px 0 rgba(255,255,255,.95),
+        0 15px 45px rgba(0,0,0,.35);
 }
 
-
 .auth-logo {
-
     width: 82px;
     height: 82px;
 
-    margin:
-        0 auto 14px;
+    margin: 0 auto 14px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
-
-    border:
-        1px solid
-        #0870a1;
+    border: 1px solid #0870a1;
 
     background:
         linear-gradient(
@@ -167,95 +115,63 @@ button {
         );
 
     color: white;
-
     font-size: 38px;
-
     font-weight: bold;
 
     text-shadow:
-        0 2px 2px
-        rgba(0,0,0,.25);
+        0 2px 2px rgba(0,0,0,.25);
 
     box-shadow:
-
-        inset 0 2px 0
-        rgba(255,255,255,.65),
-
-        0 4px 8px
-        rgba(0,0,0,.3);
+        inset 0 2px 0 rgba(255,255,255,.65),
+        0 4px 8px rgba(0,0,0,.3);
 }
 
-
 .auth-title {
-
     text-align: center;
-
     font-size: 29px;
-
     font-weight: bold;
-
     color: #344148;
 
     text-shadow:
         0 1px 0 white;
 }
 
-
 .auth-subtitle {
-
-    margin:
-        5px 0 22px;
+    margin: 5px 0 22px;
 
     text-align: center;
 
     color: #717d83;
-
     font-size: 13px;
 }
 
-
 .auth-error {
-
     display: none;
 
     margin-bottom: 12px;
-
     padding: 10px;
 
-    border:
-        1px solid
-        #bd8888;
-
+    border: 1px solid #bd8888;
     border-radius: 6px;
 
-    background:
-        #f3d9d9;
+    background: #f3d9d9;
 
-    color:
-        #803636;
-
+    color: #803636;
     font-size: 13px;
 }
 
-
-/* =========================================================
+/* =========================
    INPUT
-========================================================= */
+========================= */
 
 .auth-input {
-
     width: 100%;
     height: 45px;
 
     margin-bottom: 10px;
+    padding: 0 13px;
 
-    padding:
-        0 13px;
-
-    border:
-        1px solid
-        #8a959a;
-
+    border: 1px solid #8a959a;
     border-radius: 6px;
 
     outline: none;
@@ -269,44 +185,29 @@ button {
     color: #354149;
 
     box-shadow:
-
-        inset 0 2px 4px
-        rgba(0,0,0,.12),
-
+        inset 0 2px 4px rgba(0,0,0,.12),
         0 1px 0 white;
 
     font-size: 14px;
 }
 
-
 .auth-input:focus {
-
-    border-color:
-        #2698ca;
+    border-color: #2698ca;
 
     box-shadow:
-
-        inset 0 2px 4px
-        rgba(0,0,0,.12),
-
-        0 0 0 2px
-        rgba(30,150,205,.15);
+        inset 0 2px 4px rgba(0,0,0,.12),
+        0 0 0 2px rgba(30,150,205,.15);
 }
 
-
-/* =========================================================
-   BLUE BUTTON
-========================================================= */
+/* =========================
+   BUTTON
+========================= */
 
 .blue-button {
-
     width: 100%;
     height: 45px;
 
-    border:
-        1px solid
-        #086e9f;
-
+    border: 1px solid #086e9f;
     border-radius: 6px;
 
     background:
@@ -318,126 +219,81 @@ button {
     color: white;
 
     font-size: 15px;
-
     font-weight: bold;
 
     text-shadow:
-        0 1px 1px
-        rgba(0,0,0,.25);
+        0 1px 1px rgba(0,0,0,.25);
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.65),
-
-        0 2px 4px
-        rgba(0,0,0,.2);
+        inset 0 1px 0 rgba(255,255,255,.65),
+        0 2px 4px rgba(0,0,0,.2);
 }
-
 
 .blue-button:active {
-
-    transform:
-        translateY(1px);
+    transform: translateY(1px);
 }
 
-
 .auth-switch {
-
     margin-top: 15px;
-
     text-align: center;
 
     color: #707c82;
-
     font-size: 13px;
 }
 
-
 .link-button {
-
     padding: 0;
 
     border: 0;
-
     background: transparent;
 
     color: #1687bd;
-
     font-weight: bold;
 }
 
-
-/* =========================================================
+/* =========================
    APP
-========================================================= */
+========================= */
 
 .app {
-
     width: 100%;
     height: 100%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
 
-
 .messenger {
-
-    width:
-        min(
-            1200px,
-            100%
-        );
-
-    height:
-        min(
-            760px,
-            100%
-        );
+    width: min(1200px, 100%);
+    height: min(760px, 100%);
 
     display: flex;
 
     overflow: hidden;
 
-    border:
-        1px solid
-        #7b868b;
-
+    border: 1px solid #7b868b;
     border-radius: 8px;
 
-    background:
-        #d2d8db;
+    background: #d2d8db;
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.9),
-
-        0 18px 50px
-        rgba(0,0,0,.35);
+        inset 0 1px 0 rgba(255,255,255,.9),
+        0 18px 50px rgba(0,0,0,.35);
 }
 
-
-/* =========================================================
+/* =========================
    SIDEBAR
-========================================================= */
+========================= */
 
 .sidebar {
-
     width: 350px;
-
     min-width: 280px;
 
     display: flex;
-
     flex-direction: column;
 
-    border-right:
-        1px solid
-        #838e93;
+    border-right: 1px solid #838e93;
 
     background:
         linear-gradient(
@@ -448,28 +304,18 @@ button {
         );
 }
 
-
-/* =========================================================
-   SIDEBAR TOP
-========================================================= */
-
 .sidebar-top {
-
     height: 66px;
-
     min-height: 66px;
 
     padding: 10px;
 
     display: flex;
-
     align-items: center;
 
     gap: 8px;
 
-    border-bottom:
-        1px solid
-        #838d92;
+    border-bottom: 1px solid #838d92;
 
     background:
         linear-gradient(
@@ -479,35 +325,21 @@ button {
         );
 
     box-shadow:
-
         inset 0 1px 0 white,
-
-        0 2px 4px
-        rgba(0,0,0,.15);
+        0 2px 4px rgba(0,0,0,.15);
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
 .logo {
-
     width: 42px;
     height: 42px;
-
     min-width: 42px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
-
-    border:
-        1px solid
-        #0871a2;
+    border: 1px solid #0871a2;
 
     background:
         linear-gradient(
@@ -519,37 +351,26 @@ button {
     color: white;
 
     font-size: 20px;
-
     font-weight: bold;
 
     text-shadow:
-        0 1px 2px
-        rgba(0,0,0,.3);
+        0 1px 2px rgba(0,0,0,.3);
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.65),
-
-        0 2px 4px
-        rgba(0,0,0,.25);
+        inset 0 1px 0 rgba(255,255,255,.65),
+        0 2px 4px rgba(0,0,0,.25);
 }
 
-
-/* =========================================================
+/* =========================
    SEARCH
-========================================================= */
+========================= */
 
 .search {
-
     position: relative;
-
     flex: 1;
 }
 
-
 .search-icon {
-
     position: absolute;
 
     left: 11px;
@@ -560,19 +381,13 @@ button {
     pointer-events: none;
 }
 
-
 .search input {
-
     width: 100%;
     height: 40px;
 
-    padding:
-        0 10px 0 34px;
+    padding: 0 10px 0 34px;
 
-    border:
-        1px solid
-        #8d979c;
-
+    border: 1px solid #8d979c;
     border-radius: 6px;
 
     outline: none;
@@ -584,30 +399,18 @@ button {
         );
 
     box-shadow:
-
-        inset 0 2px 4px
-        rgba(0,0,0,.12),
-
+        inset 0 2px 4px rgba(0,0,0,.12),
         0 1px 0 white;
 
     color: #354149;
 }
 
-
-/* =========================================================
-   MENU
-========================================================= */
-
 .menu-button,
 .header-button {
-
     width: 40px;
     height: 40px;
 
-    border:
-        1px solid
-        #858f94;
-
+    border: 1px solid #858f94;
     border-radius: 6px;
 
     background:
@@ -617,37 +420,26 @@ button {
         );
 
     color: #536067;
-
     font-size: 18px;
 
     box-shadow:
-
         inset 0 1px 0 white,
-
-        0 2px 3px
-        rgba(0,0,0,.17);
+        0 2px 3px rgba(0,0,0,.17);
 }
-
 
 .menu-button:active,
 .header-button:active {
-
-    transform:
-        translateY(1px);
+    transform: translateY(1px);
 }
 
-
-/* =========================================================
+/* =========================
    USERNAME SEARCH
-========================================================= */
+========================= */
 
 .username-search {
-
     padding: 9px;
 
-    border-bottom:
-        1px solid
-        #929ca1;
+    border-bottom: 1px solid #929ca1;
 
     background:
         linear-gradient(
@@ -656,30 +448,20 @@ button {
         );
 }
 
-
 .username-search-box {
-
     display: flex;
-
     gap: 6px;
 }
 
-
 .username-search-input {
-
     flex: 1;
 
     width: 100%;
-
     height: 38px;
 
-    padding:
-        0 11px;
+    padding: 0 11px;
 
-    border:
-        1px solid
-        #89949a;
-
+    border: 1px solid #89949a;
     border-radius: 6px;
 
     outline: none;
@@ -693,30 +475,19 @@ button {
     color: #354149;
 
     box-shadow:
-
-        inset 0 2px 4px
-        rgba(0,0,0,.12),
-
+        inset 0 2px 4px rgba(0,0,0,.12),
         0 1px 0 white;
 }
 
-
 .username-search-input:focus {
-
-    border-color:
-        #2998c9;
+    border-color: #2998c9;
 }
 
-
 .username-search-button {
-
     width: 40px;
     height: 38px;
 
-    border:
-        1px solid
-        #0870a2;
-
+    border: 1px solid #0870a2;
     border-radius: 6px;
 
     background:
@@ -726,89 +497,56 @@ button {
         );
 
     color: white;
-
     font-size: 16px;
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.6),
-
-        0 2px 3px
-        rgba(0,0,0,.2);
+        inset 0 1px 0 rgba(255,255,255,.6),
+        0 2px 3px rgba(0,0,0,.2);
 }
 
-
-/* =========================================================
+/* =========================
    USER LIST
-========================================================= */
+========================= */
 
 .user-list {
-
     flex: 1;
-
     overflow-y: auto;
 }
 
-
 .user-list::-webkit-scrollbar,
 .messages::-webkit-scrollbar {
-
     width: 8px;
 }
 
-
 .user-list::-webkit-scrollbar-thumb,
 .messages::-webkit-scrollbar-thumb {
-
-    background:
-        #a2adb2;
-
+    background: #a2adb2;
     border-radius: 5px;
 }
 
-
-/* =========================================================
-   USER
-========================================================= */
-
 .user {
-
     min-height: 73px;
 
-    padding:
-        10px 12px;
+    padding: 10px 12px;
 
     display: flex;
-
     align-items: center;
 
     gap: 11px;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.5);
-
-    border-bottom:
-        1px solid
-        rgba(80,90,95,.1);
+    border-top: 1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(80,90,95,.1);
 
     cursor: pointer;
 
-    transition:
-        background .1s;
+    transition: background .1s;
 }
-
 
 .user:hover {
-
-    background:
-        rgba(255,255,255,.3);
+    background: rgba(255,255,255,.3);
 }
 
-
 .user.active {
-
     color: white;
 
     background:
@@ -818,38 +556,23 @@ button {
         );
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.5),
-
-        0 1px 3px
-        rgba(0,0,0,.2);
+        inset 0 1px 0 rgba(255,255,255,.5),
+        0 1px 3px rgba(0,0,0,.2);
 }
 
-
-/* =========================================================
-   AVATAR
-========================================================= */
-
 .avatar {
-
     position: relative;
 
     width: 48px;
     height: 48px;
-
     min-width: 48px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
-
-    border:
-        1px solid
-        #6c777d;
+    border: 1px solid #6c777d;
 
     background:
         linear-gradient(
@@ -861,25 +584,17 @@ button {
     color: white;
 
     font-size: 17px;
-
     font-weight: bold;
 
     text-shadow:
-        0 1px 2px
-        rgba(0,0,0,.5);
+        0 1px 2px rgba(0,0,0,.5);
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.55),
-
-        0 2px 4px
-        rgba(0,0,0,.3);
+        inset 0 1px 0 rgba(255,255,255,.55),
+        0 2px 4px rgba(0,0,0,.3);
 }
 
-
 .avatar.online::after {
-
     content: "";
 
     position: absolute;
@@ -891,150 +606,102 @@ button {
     height: 12px;
 
     border-radius: 50%;
+    border: 2px solid #e9edef;
 
-    border:
-        2px solid
-        #e9edef;
-
-    background:
-        #48d35a;
+    background: #48d35a;
 
     box-shadow:
-        0 1px 2px
-        rgba(0,0,0,.35);
+        0 1px 2px rgba(0,0,0,.35);
 }
 
-
-/* =========================================================
-   USER INFO
-========================================================= */
-
 .user-info {
-
     min-width: 0;
-
     flex: 1;
 }
 
-
 .user-name {
-
     overflow: hidden;
 
     white-space: nowrap;
-
     text-overflow: ellipsis;
 
     font-size: 15px;
-
     font-weight: bold;
 }
 
-
 .user-status {
-
     margin-top: 5px;
 
     color: #758087;
-
     font-size: 12px;
 }
 
-
-.user.active
-.user-status {
-
-    color:
-        rgba(255,255,255,.85);
+.user.active .user-status {
+    color: rgba(255,255,255,.85);
 }
 
-
-/* =========================================================
-   SEARCH RESULT
-========================================================= */
+/* =========================
+   SEARCH RESULTS
+========================= */
 
 .username-search-result {
-
     min-height: 70px;
 
-    padding:
-        10px;
+    padding: 10px;
 
     display: flex;
-
     align-items: center;
 
     gap: 10px;
 
-    border-bottom:
-        1px solid
-        rgba(100,110,115,.15);
+    border-bottom: 1px solid rgba(100,110,115,.15);
 
     cursor: pointer;
 }
 
-
 .username-search-result:hover {
-
-    background:
-        rgba(255,255,255,.35);
+    background: rgba(255,255,255,.35);
 }
 
-
 .username-result-info {
-
     flex: 1;
-
     min-width: 0;
 }
 
-
 .username-result-name {
-
     overflow: hidden;
 
     white-space: nowrap;
-
     text-overflow: ellipsis;
 
     font-weight: bold;
 }
 
-
 .username-result-handle {
-
     margin-top: 4px;
 
     color: #758087;
-
     font-size: 12px;
 }
 
-
 .search-empty {
-
     padding: 25px 15px;
 
     text-align: center;
 
     color: #758087;
-
     font-size: 13px;
 }
 
-
-/* =========================================================
+/* =========================
    CONVERSATION
-========================================================= */
+========================= */
 
 .conversation {
-
     flex: 1;
-
     min-width: 0;
 
     display: flex;
-
     flex-direction: column;
 
     background:
@@ -1045,27 +712,16 @@ button {
         );
 }
 
-
-/* =========================================================
-   CHAT HEADER
-========================================================= */
-
 .chat-header {
-
     height: 66px;
-
     min-height: 66px;
 
-    padding:
-        8px 12px;
+    padding: 8px 12px;
 
     display: flex;
-
     align-items: center;
 
-    border-bottom:
-        1px solid
-        #858f94;
+    border-bottom: 1px solid #858f94;
 
     background:
         linear-gradient(
@@ -1075,84 +731,59 @@ button {
         );
 
     box-shadow:
-
         inset 0 1px 0 white,
-
-        0 2px 4px
-        rgba(0,0,0,.15);
+        0 2px 4px rgba(0,0,0,.15);
 }
 
-
 .header-avatar {
-
     width: 46px;
     height: 46px;
-
     min-width: 46px;
 }
 
-
 .chat-header-info {
-
     flex: 1;
-
     min-width: 0;
 
     margin-left: 10px;
 }
 
-
 .chat-header-name {
-
     overflow: hidden;
 
     white-space: nowrap;
-
     text-overflow: ellipsis;
 
     font-size: 16px;
-
     font-weight: bold;
 }
 
-
 .chat-header-status {
-
     margin-top: 4px;
 
     color: #758087;
-
     font-size: 12px;
 }
 
-
 .chat-header-status.online {
-
-    color:
-        #25a53b;
+    color: #25a53b;
 }
 
-
 .back-button {
-
     display: none;
-
     margin-right: 7px;
 }
 
-
-/* =========================================================
+/* =========================
    MESSAGES
-========================================================= */
+========================= */
 
 .messages {
-
     flex: 1;
 
     overflow-y: auto;
 
-    padding:
-        18px 20px;
+    padding: 18px 20px;
 
     background-image:
         radial-gradient(
@@ -1160,97 +791,53 @@ button {
             transparent 1px
         );
 
-    background-size:
-        8px 8px;
+    background-size: 8px 8px;
 }
 
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
 .empty {
-
     height: 100%;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     color: #758087;
-
     text-align: center;
 }
 
-
 .empty-card {
+    padding: 25px;
 
-    padding:
-        25px;
-
-    border:
-        1px solid
-        rgba(100,110,115,.3);
-
+    border: 1px solid rgba(100,110,115,.3);
     border-radius: 9px;
 
-    background:
-        rgba(255,255,255,.45);
+    background: rgba(255,255,255,.45);
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.8),
-
-        0 2px 8px
-        rgba(0,0,0,.1);
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 2px 8px rgba(0,0,0,.1);
 }
 
-
 .empty-icon {
-
     margin-bottom: 10px;
-
     font-size: 45px;
 }
 
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
 .message-row {
-
     display: flex;
-
     margin-bottom: 8px;
 }
 
-
 .message-row.mine {
-
-    justify-content:
-        flex-end;
+    justify-content: flex-end;
 }
 
-
 .message {
+    max-width: min(70%, 600px);
 
-    max-width:
-        min(
-            70%,
-            600px
-        );
+    padding: 8px 10px 7px;
 
-    padding:
-        8px 10px 7px;
-
-    border:
-        1px solid
-        #b1bcc0;
-
+    border: 1px solid #b1bcc0;
     border-radius: 8px;
 
     background:
@@ -1260,19 +847,12 @@ button {
         );
 
     box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.9),
-
-        0 1px 2px
-        rgba(0,0,0,.16);
+        inset 0 1px 0 rgba(255,255,255,.9),
+        0 1px 2px rgba(0,0,0,.16);
 }
 
-
 .message.mine {
-
-    border-color:
-        #8eb5c8;
+    border-color: #8eb5c8;
 
     background:
         linear-gradient(
@@ -1281,56 +861,40 @@ button {
         );
 }
 
-
 .message-text {
+    white-space: pre-wrap;
+    word-break: break-word;
 
-    white-space:
-        pre-wrap;
-
-    word-break:
-        break-word;
-
-    line-height:
-        1.42;
+    line-height: 1.42;
 
     font-size: 14px;
 }
 
-
 .message-time {
-
     float: right;
 
     margin-top: 4px;
-
     margin-left: 10px;
 
     color: #7b878c;
-
     font-size: 10px;
 }
 
-
-/* =========================================================
+/* =========================
    COMPOSER
-========================================================= */
+========================= */
 
 .composer {
-
     min-height: 68px;
 
-    padding:
-        9px 12px;
+    padding: 9px 12px;
 
     display: flex;
-
     align-items: center;
 
     gap: 8px;
 
-    border-top:
-        1px solid
-        #858f94;
+    border-top: 1px solid #858f94;
 
     background:
         linear-gradient(
@@ -1339,34 +903,24 @@ button {
         );
 
     box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.8);
+        inset 0 1px 0 rgba(255,255,255,.8);
 }
 
-
 .input-wrap {
-
     flex: 1;
 }
 
-
 .message-input {
-
     width: 100%;
 
     min-height: 42px;
-
     max-height: 115px;
 
     resize: none;
 
-    padding:
-        11px 13px;
+    padding: 11px 13px;
 
-    border:
-        1px solid
-        #89949a;
-
+    border: 1px solid #89949a;
     border-radius: 7px;
 
     outline: none;
@@ -1382,31 +936,20 @@ button {
     font-size: 14px;
 
     box-shadow:
-
-        inset 0 2px 4px
-        rgba(0,0,0,.13),
-
+        inset 0 2px 4px rgba(0,0,0,.13),
         0 1px 0 white;
 }
 
-
 .message-input:focus {
-
-    border-color:
-        #2998c9;
+    border-color: #2998c9;
 }
-
 
 .attach-button,
 .send-button {
-
     width: 42px;
     height: 42px;
 
-    border:
-        1px solid
-        #858f94;
-
+    border: 1px solid #858f94;
     border-radius: 7px;
 
     background:
@@ -1416,31 +959,22 @@ button {
         );
 
     color: #536067;
-
     font-size: 18px;
 
     box-shadow:
-
         inset 0 1px 0 white,
-
-        0 2px 3px
-        rgba(0,0,0,.17);
+        0 2px 3px rgba(0,0,0,.17);
 }
-
 
 .send-button {
-
-    color:
-        #198bc5;
+    color: #198bc5;
 }
 
-
-/* =========================================================
+/* =========================
    PROFILE
-========================================================= */
+========================= */
 
 .profile {
-
     position: fixed;
 
     top: 75px;
@@ -1454,10 +988,7 @@ button {
 
     padding: 16px;
 
-    border:
-        1px solid
-        #858f94;
-
+    border: 1px solid #858f94;
     border-radius: 8px;
 
     background:
@@ -1467,24 +998,16 @@ button {
         );
 
     box-shadow:
-
         inset 0 1px 0 white,
-
-        0 8px 25px
-        rgba(0,0,0,.3);
+        0 8px 25px rgba(0,0,0,.3);
 }
 
-
 .profile.show {
-
     display: block;
 }
 
-
 .profile-head {
-
     display: flex;
-
     align-items: center;
 
     gap: 12px;
@@ -1492,50 +1015,34 @@ button {
     margin-bottom: 15px;
 }
 
-
 .profile-avatar {
-
     width: 58px;
     height: 58px;
 }
 
-
 .profile-name {
-
     font-weight: bold;
 }
 
-
 .profile-email {
-
     margin-top: 5px;
 
     color: #768187;
-
     font-size: 11px;
 }
 
-
 .profile-username {
-
     margin-top: 4px;
 
     color: #1687bd;
-
     font-size: 12px;
 }
 
-
 .logout {
-
     width: 100%;
-
     height: 38px;
 
-    border:
-        1px solid
-        #929b9f;
-
+    border: 1px solid #929b9f;
     border-radius: 5px;
 
     background:
@@ -1547,15 +1054,12 @@ button {
     color: #555;
 }
 
-
-/* =========================================================
+/* =========================
    LOADER
-========================================================= */
+========================= */
 
 .loader {
-
     position: fixed;
-
     inset: 0;
 
     z-index: 20000;
@@ -1563,29 +1067,19 @@ button {
     display: none;
 
     align-items: center;
-
     justify-content: center;
 
-    background:
-        rgba(205,214,218,.72);
+    background: rgba(205,214,218,.72);
 }
 
-
 .loader.show {
-
     display: flex;
 }
 
-
 .loader-box {
+    padding: 18px 25px;
 
-    padding:
-        18px 25px;
-
-    border:
-        1px solid
-        #899398;
-
+    border: 1px solid #899398;
     border-radius: 8px;
 
     background:
@@ -1595,17 +1089,14 @@ button {
         );
 
     box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.3);
+        0 8px 25px rgba(0,0,0,.3);
 }
 
-
-/* =========================================================
+/* =========================
    TOAST
-========================================================= */
+========================= */
 
 .toast {
-
     position: fixed;
 
     left: 50%;
@@ -1613,8 +1104,7 @@ button {
 
     z-index: 30000;
 
-    padding:
-        10px 16px;
+    padding: 10px 16px;
 
     transform:
         translateX(-50%)
@@ -1626,20 +1116,15 @@ button {
 
     border-radius: 6px;
 
-    background:
-        rgba(30,40,45,.94);
+    background: rgba(30,40,45,.94);
 
     color: white;
-
     font-size: 13px;
 
-    transition:
-        .25s;
+    transition: .25s;
 }
 
-
 .toast.show {
-
     opacity: 1;
 
     transform:
@@ -1647,86 +1132,61 @@ button {
         translateY(0);
 }
 
-
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:720px) {
 
     .messenger {
-
         height: 100%;
-
         border-radius: 0;
     }
 
     .sidebar {
-
         width: 100%;
-
         min-width: 100%;
     }
 
     .conversation {
-
         display: none;
     }
 
-    .messenger.chat-open
-    .sidebar {
-
+    .messenger.chat-open .sidebar {
         display: none;
     }
 
-    .messenger.chat-open
-    .conversation {
-
+    .messenger.chat-open .conversation {
         display: flex;
     }
 
     .back-button {
-
         display: block;
     }
 
     .message {
-
         max-width: 84%;
     }
 
     .profile {
-
         right: 10px;
-
-        width:
-            calc(100% - 20px);
+        width: calc(100% - 20px);
     }
-
 }
-
-
 </style>
 </head>
 
-
 <body>
 
+<!-- =========================
+     AUTH
+========================= -->
 
-<!-- =========================================================
-     AUTH SCREEN
-========================================================= -->
-
-<div
-    class="auth-screen"
-    id="authScreen"
->
+<div class="auth-screen" id="authScreen">
 
     <div class="auth-box">
 
-        <div class="auth-logo">
-            X
-        </div>
+        <div class="auth-logo">X</div>
 
         <div class="auth-title">
             XPMess
@@ -1736,12 +1196,7 @@ button {
             Классический онлайн-мессенджер
         </div>
 
-
-        <div
-            class="auth-error"
-            id="authError"
-        ></div>
-
+        <div class="auth-error" id="authError"></div>
 
         <input
             class="auth-input"
@@ -1751,7 +1206,6 @@ button {
             autocomplete="username"
         >
 
-
         <input
             class="auth-input"
             id="emailInput"
@@ -1759,7 +1213,6 @@ button {
             placeholder="Email"
             autocomplete="email"
         >
-
 
         <input
             class="auth-input"
@@ -1769,7 +1222,6 @@ button {
             autocomplete="current-password"
         >
 
-
         <button
             class="blue-button"
             id="authButton"
@@ -1777,7 +1229,6 @@ button {
         >
             Создать аккаунт
         </button>
-
 
         <div class="auth-switch">
 
@@ -1796,37 +1247,23 @@ button {
         </div>
 
     </div>
-
 </div>
 
-
-<!-- =========================================================
-     APPLICATION
-========================================================= -->
+<!-- =========================
+     APP
+========================= -->
 
 <div class="app">
 
-    <div
-        class="messenger"
-        id="messenger"
-    >
-
-
-        <!-- =================================================
-             SIDEBAR
-        ================================================== -->
+    <div class="messenger" id="messenger">
 
         <aside class="sidebar">
-
-
-            <!-- TOP -->
 
             <div class="sidebar-top">
 
                 <div class="logo">
                     X
                 </div>
-
 
                 <div class="search">
 
@@ -1843,7 +1280,6 @@ button {
 
                 </div>
 
-
                 <button
                     class="menu-button"
                     onclick="toggleProfile()"
@@ -1853,14 +1289,9 @@ button {
 
             </div>
 
-
-            <!-- USERNAME SEARCH -->
-
             <div class="username-search">
 
-                <div
-                    class="username-search-box"
-                >
+                <div class="username-search-box">
 
                     <input
                         id="usernameSearch"
@@ -1885,9 +1316,6 @@ button {
 
             </div>
 
-
-            <!-- USERS -->
-
             <div
                 class="user-list"
                 id="userList"
@@ -1899,21 +1327,11 @@ button {
 
             </div>
 
-
         </aside>
-
-
-        <!-- =================================================
-             CONVERSATION
-        ================================================== -->
 
         <main class="conversation">
 
-
-            <!-- HEADER -->
-
             <header class="chat-header">
-
 
                 <button
                     class="header-button back-button"
@@ -1922,7 +1340,6 @@ button {
                     ‹
                 </button>
 
-
                 <div
                     class="avatar header-avatar"
                     id="headerAvatar"
@@ -1930,10 +1347,7 @@ button {
                     ?
                 </div>
 
-
-                <div
-                    class="chat-header-info"
-                >
+                <div class="chat-header-info">
 
                     <div
                         class="chat-header-name"
@@ -1941,7 +1355,6 @@ button {
                     >
                         Выберите пользователя
                     </div>
-
 
                     <div
                         class="chat-header-status"
@@ -1952,7 +1365,6 @@ button {
 
                 </div>
 
-
                 <button
                     class="header-button"
                     onclick="showUserInfo()"
@@ -1960,11 +1372,7 @@ button {
                     ⓘ
                 </button>
 
-
             </header>
-
-
-            <!-- MESSAGES -->
 
             <section
                 class="messages"
@@ -1983,11 +1391,8 @@ button {
                             Ваши сообщения
                         </strong>
 
-                        <div
-                            style="margin-top:6px"
-                        >
-                            Найдите пользователя по
-                            @username
+                        <div style="margin-top:6px">
+                            Найдите пользователя по @username
                         </div>
 
                     </div>
@@ -1996,15 +1401,11 @@ button {
 
             </section>
 
-
-            <!-- COMPOSER -->
-
             <div
                 class="composer"
                 id="composer"
                 style="display:none"
             >
-
 
                 <button
                     class="attach-button"
@@ -2012,7 +1413,6 @@ button {
                 >
                     📎
                 </button>
-
 
                 <div class="input-wrap">
 
@@ -2027,7 +1427,6 @@ button {
 
                 </div>
 
-
                 <button
                     class="send-button"
                     onclick="sendMessage()"
@@ -2035,29 +1434,20 @@ button {
                     ➤
                 </button>
 
-
             </div>
-
 
         </main>
 
-
     </div>
-
 </div>
 
-
-<!-- =========================================================
+<!-- =========================
      PROFILE
-========================================================= -->
+========================= -->
 
-<div
-    class="profile"
-    id="profile"
->
+<div class="profile" id="profile">
 
     <div class="profile-head">
-
 
         <div
             class="avatar profile-avatar"
@@ -2065,7 +1455,6 @@ button {
         >
             ?
         </div>
-
 
         <div>
 
@@ -2076,14 +1465,12 @@ button {
                 Пользователь
             </div>
 
-
             <div
                 class="profile-username"
                 id="profileUsername"
             >
                 @username
             </div>
-
 
             <div
                 class="profile-email"
@@ -2094,9 +1481,7 @@ button {
 
         </div>
 
-
     </div>
-
 
     <button
         class="logout"
@@ -2107,15 +1492,11 @@ button {
 
 </div>
 
-
-<!-- =========================================================
+<!-- =========================
      LOADER
-========================================================= -->
+========================= -->
 
-<div
-    class="loader"
-    id="loader"
->
+<div class="loader" id="loader">
 
     <div class="loader-box">
         Подключение...
@@ -2123,16 +1504,7 @@ button {
 
 </div>
 
-
-<!-- =========================================================
-     TOAST
-========================================================= -->
-
-<div
-    class="toast"
-    id="toast"
-></div>
-
+<div class="toast" id="toast"></div>
 
 <script>
 
@@ -2165,7 +1537,6 @@ const firebaseConfig = {
 
     measurementId:
         "G-LPS70F2H4W"
-
 };
 
 
@@ -2181,9 +1552,7 @@ const PHOTON_APP_ID =
    FIREBASE INIT
 ========================================================= */
 
-firebase.initializeApp(
-    firebaseConfig
-);
+firebase.initializeApp(firebaseConfig);
 
 const auth =
     firebase.auth();
@@ -2196,38 +1565,21 @@ const db =
    STATE
 ========================================================= */
 
-let currentUser =
-    null;
+let currentUser = null;
+let currentProfile = null;
+let users = [];
+let selectedUser = null;
 
-let currentProfile =
-    null;
+let messageRef = null;
+let messageListener = null;
 
-let users =
-    [];
+let typingRef = null;
+let typingListener = null;
+let typingTimer = null;
 
-let selectedUser =
-    null;
+let authMode = "register";
 
-let messageRef =
-    null;
-
-let messageListener =
-    null;
-
-let typingRef =
-    null;
-
-let typingListener =
-    null;
-
-let typingTimer =
-    null;
-
-let authMode =
-    "register";
-
-let photonClient =
-    null;
+let photonClient = null;
 
 
 /* =========================================================
@@ -2235,9 +1587,7 @@ let photonClient =
 ========================================================= */
 
 function $(id) {
-
     return document.getElementById(id);
-
 }
 
 
@@ -2248,32 +1598,11 @@ function $(id) {
 function escapeHTML(value) {
 
     return String(value || "")
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 }
 
 
@@ -2287,23 +1616,12 @@ function initials(name) {
         return "?";
 
     return name
-
         .trim()
-
         .split(/\s+/)
-
         .slice(0, 2)
-
-        .map(
-            word =>
-                word
-                .charAt(0)
-        )
-
+        .map(word => word.charAt(0))
         .join("")
-
         .toUpperCase();
-
 }
 
 
@@ -2316,17 +1634,14 @@ function formatTime(timestamp) {
     if (!timestamp)
         return "";
 
-    return new Date(
-        timestamp
-    )
-    .toLocaleTimeString(
-        "ru-RU",
-        {
-            hour: "2-digit",
-            minute: "2-digit"
-        }
-    );
-
+    return new Date(timestamp)
+        .toLocaleTimeString(
+            "ru-RU",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
 }
 
 
@@ -2336,13 +1651,9 @@ function formatTime(timestamp) {
 
 function makeChatId(a, b) {
 
-    return [
-        a,
-        b
-    ]
-    .sort()
-    .join("_");
-
+    return [a, b]
+        .sort()
+        .join("_");
 }
 
 
@@ -2354,11 +1665,7 @@ function showLoader(value) {
 
     $("loader")
         .classList
-        .toggle(
-            "show",
-            value
-        );
-
+        .toggle("show", value);
 }
 
 
@@ -2368,27 +1675,17 @@ function showLoader(value) {
 
 function showToast(text) {
 
-    const toast =
-        $("toast");
+    const toast = $("toast");
 
-    toast.textContent =
-        text;
+    toast.textContent = text;
 
-    toast.classList.add(
-        "show"
-    );
+    toast.classList.add("show");
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            toast.classList.remove(
-                "show"
-            );
+        toast.classList.remove("show");
 
-        },
-        2500
-    );
-
+    }, 2500);
 }
 
 
@@ -2403,38 +1700,27 @@ function toggleAuth() {
             ? "login"
             : "register";
 
+    $("nameInput").style.display =
+        authMode === "register"
+            ? "block"
+            : "none";
 
-    $("nameInput")
-        .style
-        .display =
-            authMode === "register"
-                ? "block"
-                : "none";
+    $("authButton").textContent =
+        authMode === "register"
+            ? "Создать аккаунт"
+            : "Войти";
 
+    $("authQuestion").textContent =
+        authMode === "register"
+            ? "Уже есть аккаунт?"
+            : "Нет аккаунта?";
 
-    $("authButton")
-        .textContent =
-            authMode === "register"
-                ? "Создать аккаунт"
-                : "Войти";
-
-
-    $("authQuestion")
-        .textContent =
-            authMode === "register"
-                ? "Уже есть аккаунт?"
-                : "Нет аккаунта?";
-
-
-    $("authToggle")
-        .textContent =
-            authMode === "register"
-                ? "Войти"
-                : "Создать";
-
+    $("authToggle").textContent =
+        authMode === "register"
+            ? "Войти"
+            : "Создать";
 
     hideAuthError();
-
 }
 
 
@@ -2444,30 +1730,22 @@ function toggleAuth() {
 
 function authError(message) {
 
-    const error =
-        $("authError");
+    const error = $("authError");
 
-    error.textContent =
-        message;
+    error.textContent = message;
 
-    error.style.display =
-        "block";
-
+    error.style.display = "block";
 }
 
 
 function hideAuthError() {
 
-    $("authError")
-        .style
-        .display =
-        "none";
-
+    $("authError").style.display = "none";
 }
 
 
 /* =========================================================
-   FIREBASE ERROR TRANSLATION
+   FIREBASE ERROR
 ========================================================= */
 
 function translateFirebaseError(code) {
@@ -2496,20 +1774,34 @@ function translateFirebaseError(code) {
             "Слишком много попыток. Попробуйте позже.",
 
         "auth/network-request-failed":
-            "Ошибка сети."
+            "Ошибка сети. Проверьте интернет.",
+
+        "auth/operation-not-allowed":
+            "Регистрация Email/Password отключена в Firebase.",
+
+        "auth/invalid-api-key":
+            "Неверный Firebase API key.",
+
+        "auth/app-not-authorized":
+            "Этот домен не разрешён в Firebase.",
+
+        "PERMISSION_DENIED":
+            "Firebase Database запретила доступ.",
+
+        "permission-denied":
+            "Firebase Database запретила доступ."
 
     };
 
     return (
         errors[code] ||
-        "Произошла ошибка."
+        "Произошла ошибка: " + (code || "unknown")
     );
-
 }
 
 
 /* =========================================================
-   AUTHENTICATE
+   AUTHENTICATE — ИСПРАВЛЕННАЯ ВЕРСИЯ
 ========================================================= */
 
 async function authenticate() {
@@ -2528,15 +1820,16 @@ async function authenticate() {
         $("passwordInput")
         .value;
 
-
     hideAuthError();
 
 
+    /* =========================
+       VALIDATION
+    ========================= */
+
     if (!email) {
 
-        authError(
-            "Введите email."
-        );
+        authError("Введите email.");
 
         return;
     }
@@ -2544,17 +1837,13 @@ async function authenticate() {
 
     if (!password) {
 
-        authError(
-            "Введите пароль."
-        );
+        authError("Введите пароль.");
 
         return;
     }
 
 
-    if (
-        password.length < 6
-    ) {
+    if (password.length < 6) {
 
         authError(
             "Пароль должен содержать минимум 6 символов."
@@ -2579,8 +1868,7 @@ async function authenticate() {
 
     if (
         authMode === "register" &&
-        !/^[a-zA-Z0-9_а-яА-ЯёЁ-]{3,24}$/
-            .test(name)
+        !/^[a-zA-Z0-9_а-яА-ЯёЁ-]{3,24}$/.test(name)
     ) {
 
         authError(
@@ -2596,14 +1884,11 @@ async function authenticate() {
 
     try {
 
+        /* =================================================
+           REGISTER
+        ================================================= */
 
-        if (
-            authMode === "register"
-        ) {
-
-            /*
-             * Проверяем уникальность username
-             */
+        if (authMode === "register") {
 
             const usernameLower =
                 name
@@ -2611,34 +1896,10 @@ async function authenticate() {
                     .toLowerCase();
 
 
-            const existing =
-                await db
-                    .ref("users")
-                    .orderByChild(
-                        "usernameLower"
-                    )
-                    .equalTo(
-                        usernameLower
-                    )
-                    .once("value");
-
-
-            if (
-                existing.exists()
-            ) {
-
-                authError(
-                    "Этот username уже занят."
-                );
-
-                showLoader(false);
-
-                return;
-            }
-
-
             /*
-             * Создаём Firebase аккаунт
+             * Сначала создаём аккаунт.
+             * После createUserWithEmailAndPassword
+             * пользователь уже авторизован.
              */
 
             const result =
@@ -2649,32 +1910,71 @@ async function authenticate() {
                     );
 
 
+            const user =
+                result.user;
+
+
             /*
-             * Firebase Profile
+             * Теперь можно обращаться
+             * к защищённой Realtime Database.
              */
 
-            await result.user
-                .updateProfile({
-
-                    displayName:
-                        name
-
-                });
+            const existing =
+                await db
+                    .ref("users")
+                    .orderByChild("usernameLower")
+                    .equalTo(usernameLower)
+                    .once("value");
 
 
             /*
-             * Пользователь в Realtime Database
+             * Username занят.
+             */
+
+            if (existing.exists()) {
+
+                try {
+                    await user.delete();
+                } catch (deleteError) {
+                    console.warn(
+                        "Не удалось удалить аккаунт:",
+                        deleteError
+                    );
+                }
+
+                authError(
+                    "Этот username уже занят."
+                );
+
+                return;
+            }
+
+
+            /*
+             * Firebase Auth profile
+             */
+
+            await user.updateProfile({
+
+                displayName:
+                    name
+
+            });
+
+
+            /*
+             * Realtime Database profile
              */
 
             await db
                 .ref(
                     "users/" +
-                    result.user.uid
+                    user.uid
                 )
                 .set({
 
                     uid:
-                        result.user.uid,
+                        user.uid,
 
                     username:
                         name,
@@ -2690,21 +1990,31 @@ async function authenticate() {
 
                     lastSeen:
                         firebase
-                        .database
-                        .ServerValue
-                        .TIMESTAMP,
+                            .database
+                            .ServerValue
+                            .TIMESTAMP,
 
                     createdAt:
                         firebase
-                        .database
-                        .ServerValue
-                        .TIMESTAMP
+                            .database
+                            .ServerValue
+                            .TIMESTAMP
 
                 });
 
 
-        } else {
+            showToast(
+                "Аккаунт создан!"
+            );
 
+
+        }
+
+        /* =================================================
+           LOGIN
+        ================================================= */
+
+        else {
 
             await auth
                 .signInWithEmailAndPassword(
@@ -2718,14 +2028,17 @@ async function authenticate() {
     } catch (error) {
 
         console.error(
+            "Firebase error:",
             error
         );
+
 
         authError(
             translateFirebaseError(
                 error.code
             )
         );
+
 
     } finally {
 
@@ -2745,37 +2058,29 @@ auth.onAuthStateChanged(
 
         if (!user) {
 
-            currentUser =
-                null;
+            currentUser = null;
 
             $("authScreen")
                 .classList
-                .remove(
-                    "hidden"
-                );
+                .remove("hidden");
 
             return;
         }
 
 
-        currentUser =
-            user;
+        currentUser = user;
 
 
         $("authScreen")
             .classList
-            .add(
-                "hidden"
-            );
+            .add("hidden");
 
 
         try {
 
             await loadProfile();
 
-            await setOnline(
-                true
-            );
+            await setOnline(true);
 
             updateProfile();
 
@@ -2788,11 +2093,12 @@ auth.onAuthStateChanged(
         } catch (error) {
 
             console.error(
+                "Initialization error:",
                 error
             );
 
             showToast(
-                "Ошибка подключения"
+                "Ошибка подключения к серверу"
             );
 
         }
@@ -2813,9 +2119,7 @@ async function loadProfile() {
                 "users/" +
                 currentUser.uid
             )
-            .once(
-                "value"
-            );
+            .once("value");
 
 
     currentProfile =
@@ -2825,8 +2129,7 @@ async function loadProfile() {
     if (!currentProfile) {
 
         const username =
-            currentUser
-                .displayName ||
+            currentUser.displayName ||
             "User";
 
 
@@ -2839,14 +2142,19 @@ async function loadProfile() {
                 username,
 
             usernameLower:
-                username
-                    .toLowerCase(),
+                username.toLowerCase(),
 
             email:
                 currentUser.email,
 
             online:
-                true
+                true,
+
+            lastSeen:
+                firebase
+                    .database
+                    .ServerValue
+                    .TIMESTAMP
 
         };
 
@@ -2931,9 +2239,9 @@ async function setOnline(value) {
 
                 lastSeen:
                     firebase
-                    .database
-                    .ServerValue
-                    .TIMESTAMP
+                        .database
+                        .ServerValue
+                        .TIMESTAMP
 
             });
 
@@ -2960,9 +2268,7 @@ function startPresence() {
 
 
     const connected =
-        db.ref(
-            ".info/connected"
-        );
+        db.ref(".info/connected");
 
 
     connected.on(
@@ -2990,9 +2296,9 @@ function startPresence() {
 
                     lastSeen:
                         firebase
-                        .database
-                        .ServerValue
-                        .TIMESTAMP
+                            .database
+                            .ServerValue
+                            .TIMESTAMP
 
                 });
 
@@ -3004,9 +2310,9 @@ function startPresence() {
 
                 lastSeen:
                     firebase
-                    .database
-                    .ServerValue
-                    .TIMESTAMP
+                        .database
+                        .ServerValue
+                        .TIMESTAMP
 
             });
 
@@ -3045,9 +2351,7 @@ function listenUsers() {
                 renderUsers();
 
 
-                if (
-                    selectedUser
-                ) {
+                if (selectedUser) {
 
                     const updated =
                         users.find(
@@ -3086,51 +2390,42 @@ function renderUsers() {
 
     const search =
         $("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
+            .value
+            .trim()
+            .toLowerCase();
 
 
     const filtered =
-        users.filter(
-            user => {
+        users.filter(user => {
 
-                const name =
-                    (
-                        user.username ||
-                        ""
-                    )
-                    .toLowerCase();
+            const name =
+                (
+                    user.username ||
+                    ""
+                ).toLowerCase();
 
 
-                const username =
-                    (
-                        user.usernameLower ||
-                        ""
-                    )
-                    .toLowerCase();
+            const username =
+                (
+                    user.usernameLower ||
+                    ""
+                ).toLowerCase();
 
 
-                const email =
-                    (
-                        user.email ||
-                        ""
-                    )
-                    .toLowerCase();
+            const email =
+                (
+                    user.email ||
+                    ""
+                ).toLowerCase();
 
 
-                return (
+            return (
+                name.includes(search) ||
+                username.includes(search) ||
+                email.includes(search)
+            );
 
-                    name.includes(search) ||
-
-                    username.includes(search) ||
-
-                    email.includes(search)
-
-                );
-
-            }
-        );
+        });
 
 
     if (!filtered.length) {
@@ -3149,90 +2444,88 @@ function renderUsers() {
 
     list.innerHTML =
         filtered
-            .map(
-                user => {
+            .map(user => {
 
-                    const name =
-                        user.username ||
-                        "Пользователь";
-
-
-                    const active =
-                        selectedUser &&
-                        selectedUser.uid ===
-                        user.uid;
+                const name =
+                    user.username ||
+                    "Пользователь";
 
 
-                    return `
+                const active =
+                    selectedUser &&
+                    selectedUser.uid ===
+                    user.uid;
+
+
+                return `
+
+                    <div
+                        class="user ${active ? "active" : ""}"
+                        data-uid="${escapeHTML(user.uid)}"
+                    >
 
                         <div
-                            class="
-                                user
-                                ${active ? "active" : ""}
-                            "
-                            onclick="
-                                openChat(
-                                    '${user.uid}'
-                                )
-                            "
+                            class="avatar ${user.online ? "online" : ""}"
                         >
+                            ${escapeHTML(
+                                initials(name)
+                            )}
+                        </div>
 
-                            <div
-                                class="
-                                    avatar
-                                    ${
-                                        user.online
-                                            ? "online"
-                                            : ""
-                                    }
-                                "
-                            >
-                                ${escapeHTML(
-                                    initials(name)
-                                )}
+                        <div class="user-info">
+
+                            <div class="user-name">
+                                ${escapeHTML(name)}
                             </div>
 
+                            <div class="user-status">
 
-                            <div
-                                class="user-info"
-                            >
-
-                                <div
-                                    class="user-name"
-                                >
-                                    ${escapeHTML(
-                                        name
-                                    )}
-                                </div>
-
-
-                                <div
-                                    class="user-status"
-                                >
-
-                                    ${
-                                        user.online
-                                            ? "В сети"
-                                            : "Не в сети"
-                                    }
-
-                                </div>
+                                ${
+                                    user.online
+                                        ? "В сети"
+                                        : "Не в сети"
+                                }
 
                             </div>
 
                         </div>
 
-                    `;
+                    </div>
+
+                `;
+
+            })
+            .join("");
+
+
+    /*
+     * Обработчики кликов отдельно.
+     * Это безопаснее, чем вставлять uid
+     * прямо внутрь onclick.
+     */
+
+    list
+        .querySelectorAll(".user")
+        .forEach(element => {
+
+            element.addEventListener(
+                "click",
+                () => {
+
+                    openChat(
+                        element.dataset.uid
+                    );
 
                 }
-            )
-            .join("");
+            );
+
+        });
 
 }
 
 
 /* =========================================================
-   SEARCH @USERNAME
+   SEARCH USERNAME
 ========================================================= */
 
 async function searchUsername() {
@@ -3249,9 +2542,9 @@ async function searchUsername() {
 
     let username =
         $("usernameSearch")
-        .value
-        .trim()
-        .toLowerCase();
+            .value
+            .trim()
+            .toLowerCase();
 
 
     username =
@@ -3271,9 +2564,7 @@ async function searchUsername() {
     }
 
 
-    if (
-        username.length < 3
-    ) {
+    if (username.length < 3) {
 
         showToast(
             "Минимум 3 символа"
@@ -3298,19 +2589,12 @@ async function searchUsername() {
 
     try {
 
-
         const snapshot =
             await db
                 .ref("users")
-                .orderByChild(
-                    "usernameLower"
-                )
-                .equalTo(
-                    username
-                )
-                .once(
-                    "value"
-                );
+                .orderByChild("usernameLower")
+                .equalTo(username)
+                .once("value");
 
 
         const data =
@@ -3324,11 +2608,9 @@ async function searchUsername() {
                 <div class="search-empty">
 
                     Пользователь
-
                     <strong>
                         @${escapeHTML(username)}
                     </strong>
-
                     не найден
 
                 </div>
@@ -3365,82 +2647,79 @@ async function searchUsername() {
 
         results.innerHTML =
             found
-                .map(
-                    user => {
+                .map(user => {
 
-                        const name =
-                            user.username ||
-                            "Пользователь";
+                    const name =
+                        user.username ||
+                        "Пользователь";
 
 
-                        return `
+                    return `
+
+                        <div
+                            class="username-search-result"
+                            data-uid="${escapeHTML(user.uid)}"
+                        >
 
                             <div
-                                class="
-                                    username-search-result
-                                "
-                                onclick="
-                                    openFoundUser(
-                                        '${user.uid}'
-                                    )
-                                "
+                                class="avatar ${
+                                    user.online
+                                        ? "online"
+                                        : ""
+                                }"
+                            >
+                                ${escapeHTML(
+                                    initials(name)
+                                )}
+                            </div>
+
+                            <div
+                                class="username-result-info"
                             >
 
                                 <div
-                                    class="
-                                        avatar
-                                        ${
-                                            user.online
-                                                ? "online"
-                                                : ""
-                                        }
-                                    "
+                                    class="username-result-name"
                                 >
-
-                                    ${escapeHTML(
-                                        initials(name)
-                                    )}
-
+                                    ${escapeHTML(name)}
                                 </div>
 
-
                                 <div
-                                    class="
-                                        username-result-info
-                                    "
+                                    class="username-result-handle"
                                 >
-
-                                    <div
-                                        class="
-                                            username-result-name
-                                        "
-                                    >
-                                        ${escapeHTML(
-                                            name
-                                        )}
-                                    </div>
-
-
-                                    <div
-                                        class="
-                                            username-result-handle
-                                        "
-                                    >
-                                        @${escapeHTML(
-                                            user.usernameLower ||
-                                            name.toLowerCase()
-                                        )}
-                                    </div>
-
+                                    @${escapeHTML(
+                                        user.usernameLower ||
+                                        name.toLowerCase()
+                                    )}
                                 </div>
 
                             </div>
 
-                        `;
+                        </div>
+
+                    `;
+
+                })
+                .join("");
+
+
+        results
+            .querySelectorAll(
+                ".username-search-result"
+            )
+            .forEach(element => {
+
+                element.addEventListener(
+                    "click",
+                    () => {
+
+                        openFoundUser(
+                            element.dataset.uid
+                        );
 
                     }
-                )
-                .join("");
+                );
+
+            });
 
 
     } catch (error) {
@@ -3454,7 +2733,11 @@ async function searchUsername() {
         results.innerHTML = `
 
             <div class="search-empty">
-                Ошибка поиска
+                ${escapeHTML(
+                    translateFirebaseError(
+                        error.code
+                    )
+                )}
             </div>
 
         `;
@@ -3465,7 +2748,7 @@ async function searchUsername() {
 
 
 /* =========================================================
-   OPEN SEARCH RESULT
+   OPEN FOUND USER
 ========================================================= */
 
 async function openFoundUser(uid) {
@@ -3478,9 +2761,7 @@ async function openFoundUser(uid) {
                     "users/" +
                     uid
                 )
-                .once(
-                    "value"
-                );
+                .once("value");
 
 
         const user =
@@ -3507,9 +2788,7 @@ async function openFoundUser(uid) {
 
         if (!exists) {
 
-            users.push(
-                user
-            );
+            users.push(user);
 
         }
 
@@ -3520,9 +2799,7 @@ async function openFoundUser(uid) {
 
         $("messenger")
             .classList
-            .add(
-                "chat-open"
-            );
+            .add("chat-open");
 
 
         $("composer")
@@ -3558,7 +2835,9 @@ async function openFoundUser(uid) {
 
 
         showToast(
-            "Не удалось открыть пользователя"
+            translateFirebaseError(
+                error.code
+            )
         );
 
     }
@@ -3589,9 +2868,7 @@ function openChat(uid) {
 
     $("messenger")
         .classList
-        .add(
-            "chat-open"
-        );
+        .add("chat-open");
 
 
     $("composer")
@@ -3640,9 +2917,7 @@ function updateHeader() {
         $("headerStatus");
 
 
-    if (
-        selectedUser.online
-    ) {
+    if (selectedUser.online) {
 
         status.textContent =
             "В сети";
@@ -3673,9 +2948,7 @@ function closeChat() {
 
     $("messenger")
         .classList
-        .remove(
-            "chat-open"
-        );
+        .remove("chat-open");
 
 }
 
@@ -3732,7 +3005,7 @@ function listenMessages() {
                 Object
                     .values(data)
                     .sort(
-                        (a,b) =>
+                        (a, b) =>
                             (
                                 a.createdAt || 0
                             ) -
@@ -3783,9 +3056,7 @@ function renderMessages(messages) {
                         Начните разговор
                     </strong>
 
-                    <div
-                        style="margin-top:6px"
-                    >
+                    <div style="margin-top:6px">
                         Отправьте первое сообщение
                     </div>
 
@@ -3801,82 +3072,65 @@ function renderMessages(messages) {
 
     container.innerHTML =
         messages
-            .map(
-                message => {
+            .map(message => {
 
-                    const mine =
-                        message.senderId ===
-                        currentUser.uid;
+                const mine =
+                    message.senderId ===
+                    currentUser.uid;
 
 
-                    return `
+                return `
+
+                    <div
+                        class="
+                            message-row
+                            ${mine ? "mine" : ""}
+                        "
+                    >
 
                         <div
                             class="
-                                message-row
-                                ${
-                                    mine
-                                        ? "mine"
-                                        : ""
-                                }
+                                message
+                                ${mine ? "mine" : ""}
                             "
                         >
 
-                            <div
-                                class="
-                                    message
-                                    ${
-                                        mine
-                                            ? "mine"
-                                            : ""
-                                    }
-                                "
-                            >
+                            <div class="message-text">
+                                ${escapeHTML(
+                                    message.text
+                                )}
+                            </div>
 
-                                <div
-                                    class="message-text"
-                                >
-                                    ${escapeHTML(
-                                        message.text
-                                    )}
-                                </div>
+                            <div class="message-time">
 
+                                ${formatTime(
+                                    message.createdAt
+                                )}
 
-                                <div
-                                    class="message-time"
-                                >
-
-                                    ${formatTime(
-                                        message.createdAt
-                                    )}
-
-                                    ${
-                                        mine
-                                            ? " ✓"
-                                            : ""
-                                    }
-
-                                </div>
+                                ${
+                                    mine
+                                        ? " ✓"
+                                        : ""
+                                }
 
                             </div>
 
                         </div>
 
-                    `;
+                    </div>
 
-                }
-            )
+                `;
+
+            })
             .join("");
 
 
-    requestAnimationFrame(
-        () => {
+    requestAnimationFrame(() => {
 
-            container.scrollTop =
-                container.scrollHeight;
+        container.scrollTop =
+            container.scrollHeight;
 
-        }
-    );
+    });
 
 }
 
@@ -3938,9 +3192,9 @@ async function sendMessage() {
 
         createdAt:
             firebase
-            .database
-            .ServerValue
-            .TIMESTAMP
+                .database
+                .ServerValue
+                .TIMESTAMP
 
     };
 
@@ -3958,25 +3212,23 @@ async function sendMessage() {
 
         resizeInput();
 
-        setTyping(
-            false
-        );
+        setTyping(false);
 
-
-        sendPhotonEvent(
-            message
-        );
+        sendPhotonEvent(message);
 
 
     } catch (error) {
 
         console.error(
+            "Send message:",
             error
         );
 
 
         showToast(
-            "Не удалось отправить сообщение"
+            translateFirebaseError(
+                error.code
+            )
         );
 
     }
@@ -4005,7 +3257,7 @@ function messageKey(event) {
 
 
 /* =========================================================
-   RESIZE MESSAGE INPUT
+   RESIZE INPUT
 ========================================================= */
 
 function resizeInput() {
@@ -4022,8 +3274,7 @@ function resizeInput() {
         Math.min(
             input.scrollHeight,
             115
-        ) +
-        "px";
+        ) + "px";
 
 }
 
@@ -4046,18 +3297,14 @@ function handleTyping() {
     );
 
 
-    setTyping(
-        true
-    );
+    setTyping(true);
 
 
     typingTimer =
         setTimeout(
             () => {
 
-                setTyping(
-                    false
-                );
+                setTyping(false);
 
             },
             1200
@@ -4088,9 +3335,15 @@ function setTyping(value) {
         "/" +
         currentUser.uid
     )
-    .set(
-        value
-    );
+    .set(value)
+    .catch(error => {
+
+        console.warn(
+            "Typing:",
+            error
+        );
+
+    });
 
 }
 
@@ -4154,20 +3407,15 @@ function subscribeTyping() {
                     );
 
 
-            if (
-                otherTyping
-            ) {
+            if (otherTyping) {
 
                 $("headerStatus")
                     .textContent =
                     "печатает...";
 
-
                 $("headerStatus")
                     .classList
-                    .add(
-                        "online"
-                    );
+                    .add("online");
 
             } else {
 
@@ -4194,9 +3442,7 @@ function toggleProfile() {
 
     $("profile")
         .classList
-        .toggle(
-            "show"
-        );
+        .toggle("show");
 
 }
 
@@ -4222,8 +3468,7 @@ function showUserInfo() {
 
 
     showToast(
-        "@" +
-        handle
+        "@" + handle
     );
 
 }
@@ -4250,24 +3495,17 @@ async function logout() {
 
     try {
 
-        await setOnline(
-            false
-        );
-
+        await setOnline(false);
 
         await auth.signOut();
 
+        selectedUser = null;
 
-        selectedUser =
-            null;
-
+        currentProfile = null;
 
         $("profile")
             .classList
-            .remove(
-                "show"
-            );
-
+            .remove("show");
 
     } catch (error) {
 
@@ -4290,7 +3528,6 @@ document.addEventListener(
 
         if (!currentUser)
             return;
-
 
         setOnline(
             !document.hidden
@@ -4320,9 +3557,7 @@ function loadPhotonSDK() {
 
 
             const script =
-                document.createElement(
-                    "script"
-                );
+                document.createElement("script");
 
 
             script.src =
@@ -4350,9 +3585,7 @@ function loadPhotonSDK() {
 
 
             document.head
-                .appendChild(
-                    script
-                );
+                .appendChild(script);
 
         }
     );
@@ -4441,9 +3674,7 @@ async function initPhoton() {
    SEND PHOTON EVENT
 ========================================================= */
 
-function sendPhotonEvent(
-    message
-) {
+function sendPhotonEvent(message) {
 
     if (!photonClient)
         return;
@@ -4476,7 +3707,7 @@ function sendPhotonEvent(
 
 
 /* =========================================================
-   CLOSE PROFILE ON OUTSIDE CLICK
+   CLOSE PROFILE
 ========================================================= */
 
 document.addEventListener(
@@ -4494,17 +3725,10 @@ document.addEventListener(
 
 
         if (
-            profile.classList.contains(
-                "show"
-            ) &&
-
-            !profile.contains(
-                event.target
-            ) &&
-
-            !menu.contains(
-                event.target
-            )
+            profile.classList.contains("show") &&
+            !profile.contains(event.target) &&
+            menu &&
+            !menu.contains(event.target)
         ) {
 
             profile.classList.remove(
@@ -4532,7 +3756,9 @@ document.addEventListener(
                 .classList
                 .contains("hidden") &&
             document.activeElement !==
-                $("nameInput")
+                $("nameInput") &&
+            document.activeElement !==
+                $("passwordInput")
         ) {
 
             authenticate();
@@ -4552,9 +3778,7 @@ $("nameInput")
     .display =
     "block";
 
-
 </script>
 
 </body>
 </html>
-```
